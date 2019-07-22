@@ -22,17 +22,16 @@
         methods: {
             add: function () {
                 this.counter++;
-                this.$emit("counterChange",1);
+                this.$store.commit('changeSum',1)
             },
             sub: function () {
                 this.counter--;
-                this.$emit("counterChange",-1);
+                this.$store.commit('changeSum',-1)
             }
         },
         beforeDestroy() {
-            this.$emit("destroyCounter",this.counter);
+            this.$store.commit('changeSum',-this.counter)
         }
-
     }
 </script>
 

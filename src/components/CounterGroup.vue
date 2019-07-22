@@ -5,9 +5,9 @@
             <span>{{counterNum}}</span>
         </div>
         <br>
-            <Counter v-for="(item,index) in counterNum" :key="index" @counterChange="counterChange" @destroyCounter="destroyCounter"></Counter>
+            <Counter v-for="(item,index) in counterNum" :key="index" @destroyCounter="destroyCounter"></Counter>
         <br>
-        <CounterSum :sum="sum"></CounterSum>
+        <CounterSum></CounterSum>
 
 
     </div>
@@ -29,12 +29,15 @@
         },
         methods: {
             destroyCounter: function(counter){
-                this.sum-= counter;
+                // this.$store.state.count-= counter;
+                // this.$store.dispatch('changeSum',-1)
+                this.$store.commit('changeSum',-1)
+               // console.log(this.$store.state.count)
             },
-            counterChange: function (value) {
-                // this.counters.f
-                this.sum=this.sum+value;
-            }
+            // counterChange: function (value) {
+            //     // this.counters.f
+            //     this.$store.commit('changeSum',value)
+            // }
         },
     }
 </script>

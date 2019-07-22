@@ -1,6 +1,6 @@
 <template>
     <div>
-        sum:{{sum}}
+        sum:{{$store.state.count}}
     </div>
 </template>
 
